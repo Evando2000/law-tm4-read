@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  web:
+    container_name: simple-npm-read-cont
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash deployment.sh
+    ports:
+      - "8082:8082"
+    env_file:
+      - .env
+    networks:
+      - tm4netmicro
+
+networks:
+  tm4netmicro:
+    name: tm4netmicro
